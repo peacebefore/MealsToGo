@@ -13,10 +13,8 @@ import { Navigation } from "./src/infrastructure/navigation";
 
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
-import firebase from "firebase/app";
-import "firebase/analytics";
+import * as firebase from "firebase";
 import "firebase/auth";
-import "firebase/firestore";
 import "firebase/functions";
 
 const firebaseConfig = {
@@ -29,9 +27,7 @@ const firebaseConfig = {
   measurementId: "G-GHY3GKH3FC",
 };
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
+firebase.initializeApp(firebaseConfig);
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
